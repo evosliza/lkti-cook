@@ -1,0 +1,32 @@
+.recipe-list-container {
+  flex: 1;
+  padding: 32px 24px;
+}
+
+.recipe-form {
+  .ingredient-row {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: flex-start;
+
+    > :not(:first-child) {
+      margin-left: 4px;
+    }
+
+    > :not(:last-child) {
+      flex: 1;
+    }
+
+    > :first-child {
+      flex: 4;
+    }
+
+    .remove-item {
+      margin: 8px 0;
+    }
+  }
+}
+
+.recipe-list {
+  margin: 24px 0;
+}

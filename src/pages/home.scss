@@ -1,0 +1,30 @@
+.main-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.site-page-header {
+  border: 1px solid rgb(235, 237, 240);
+  background: #d4d5d5;
+}
+
+.header-content {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.user-name {
+  margin: 0 4px;
+}
+
+.avatar {
+  background-color: #abbba9;
+}

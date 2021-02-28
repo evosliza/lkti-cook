@@ -6,10 +6,10 @@ import Register from './Register';
 import Login from './Login';
 import Home from './Home';
 
-import { RootState } from '../store/root-state';
+import { getIsLoggedIn } from '../store/selectors';
 
 function MainRoutes() {
-  const isLoggedIn = useSelector((state: RootState) => !!state.auth.user);
+  const isLoggedIn = useSelector(getIsLoggedIn);
 
   const loggedInRoutes = (
     <Switch>

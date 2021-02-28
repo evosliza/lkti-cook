@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import Button from 'antd/lib/button';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
-import 'antd/dist/antd.css';
 
 import './auth.scss';
 import actions from '../store/actions';
@@ -73,7 +72,7 @@ const Register = () => {
           <Form.Item
               wrapperCol={{ offset: 8, span: 16 }}
           >
-            <Button type="primary" htmlType="submit">
+            <Button htmlType="submit">
               Register
             </Button>
           </Form.Item>

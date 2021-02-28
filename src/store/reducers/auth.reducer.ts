@@ -1,7 +1,7 @@
 import produce from 'immer';
 import { AnyAction, Reducer } from 'redux';
 import { UserModel } from '../../models/user';
-import actionTypes from '../../constants';
+import actionTypes from '../action-types';
 
 export interface AuthState {
   user: UserModel | null;

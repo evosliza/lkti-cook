@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react';
 
-import './App.css';
 import MainRoutes from './pages/MainRoutes';
 import { useDispatch } from 'react-redux';
 import { firebaseService } from './firebase';
 import actions from './store/actions';
+
+import './App.css';
+import 'antd/dist/antd.css';
 
 function App() {
   const dispatch = useDispatch();

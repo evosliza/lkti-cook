@@ -1,5 +1,5 @@
 import { Credentials } from '../../firebase/auth/login';
-import actionTypes from '../../constants';
+import actionTypes from '../action-types';
 import { UserModel } from '../../models/user';
 import { AnyAction } from 'redux';
 
