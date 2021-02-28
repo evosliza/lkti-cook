@@ -1,19 +1,23 @@
-import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom'
-import Register from './pages/Register';
+import React, { useEffect } from 'react';
 
 import './App.css';
+import MainRoutes from './pages/MainRoutes';
+import { useDispatch } from 'react-redux';
+import { firebaseService } from './firebase';
+import actions from './store/actions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    firebaseService.handleAuthStateChange((user) => {
+      dispatch(actions.setLoggedInUser(user));
+    })
+  }, [dispatch]);
+
   return (
     <div className="App">
-      <Switch>
-        <Route path="/register">
-          <Register />
-        </Route>
-
-        <Redirect to="/register" />
-      </Switch>
+      <MainRoutes />
     </div>
   );
 }

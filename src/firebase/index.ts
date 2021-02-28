@@ -3,6 +3,7 @@ import firebase from 'firebase';
 import { login } from './auth/login';
 import { register } from './auth/register';
 import { logout } from './auth/logout';
+import { handleAuthStateChange } from './auth/handleAuthStateChange';
 
 import { firebaseConfig } from './firebase.config';
 
@@ -12,4 +13,5 @@ export const firebaseService = {
   register,
   login,
   logout,
+  handleAuthStateChange
 };

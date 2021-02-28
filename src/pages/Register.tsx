@@ -7,27 +7,29 @@ import 'antd/dist/antd.css';
 
 import './auth.scss';
 import actions from '../store/actions';
+import { Card } from 'antd';
+import { Link } from 'react-router-dom';
 
 const Register = () => {
   const dispatch = useDispatch();
 
-  const onFinish = (user: any) => {
+  const onSubmit = (user: any) => {
     dispatch(actions.register(user));
   };
 
-  const onFinishFailed = (errorInfo: any) => {
+  const onError = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
   };
 
   return (
     <div className="auth-container">
-      <div className="register-form">
+      <Card style={{width: 600}}>
         <Form
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           name="basic"
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
+          onFinish={onSubmit}
+          onFinishFailed={onError}
         >
           <Form.Item
             label="Display name"
@@ -76,7 +78,11 @@ const Register = () => {
             </Button>
           </Form.Item>
         </Form>
-      </div>
+
+        <div>
+          <Link to="/login">Go to Login</Link>
+        </div>
+      </Card>
     </div>
   )
 };
