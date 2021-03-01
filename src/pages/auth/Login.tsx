@@ -6,16 +6,13 @@ import { useDispatch } from 'react-redux';
 import actions from '../../store/actions';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
+import { Credentials } from '../../firebase/auth/login';
 
 const Login = () => {
   const dispatch = useDispatch();
 
-  const onSubmit = (credentials: any) => {
+  const onSubmit = (credentials: Credentials) => {
     dispatch(actions.login(credentials));
-  };
-
-  const onError = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
   };
 
   return (
@@ -26,7 +23,6 @@ const Login = () => {
           wrapperCol={{ span: 16 }}
           name="basic"
           onFinish={onSubmit}
-          onFinishFailed={onError}
         >
           <Form.Item
             label="Email"
@@ -54,14 +50,11 @@ const Login = () => {
             <Input.Password />
           </Form.Item>
 
-          <Form.Item
-            wrapperCol={{ offset: 8, span: 16 }}
-          >
-            <Button htmlType="submit">
-              Login
-            </Button>
+          <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
+            <Button htmlType="submit">Login</Button>
           </Form.Item>
         </Form>
+
         <div>
           <Link to="/register">Go to Register</Link>
         </div>
