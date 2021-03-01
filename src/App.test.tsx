@@ -6,7 +6,7 @@ import { firebaseService } from './firebase';
 
 const mockDispatch = jest.fn();
 jest.mock('react-redux', () => ({
-  useDispatch: jest.fn(() => mockDispatch),
+  useDispatch: jest.fn(),
 }));
 
 const mockHandleAuthStateChange = jest.fn();
@@ -18,6 +18,9 @@ describe('<App />', () => {
 
   beforeEach(() => {
     mockUseDispatch = jest.requireMock('react-redux').useDispatch;
+
+    mockDispatch.mockReturnValue(mockDispatch);
+
     wrapper = shallow(<App />);
   })
 
