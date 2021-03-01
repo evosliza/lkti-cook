@@ -13,7 +13,7 @@ jest.mock('react-redux', () => ({
 const userInfo: Pick<UserModel, 'email' | 'password' | 'displayName'> = {
   email: 'mock-testing@mailinator.com',
   password: 'secret',
-  displayName: 'motck-testing-user'
+  displayName: 'mock-testing-user'
 }
 
 describe('<Register />', () => {
