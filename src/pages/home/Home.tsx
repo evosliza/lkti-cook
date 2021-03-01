@@ -1,12 +1,12 @@
 import React from 'react';
 import { Avatar, PageHeader } from 'antd';
-import RecipeList from './RecipeList';
+import RecipeList from '../../components/recipe-list/RecipeList';
 import { useDispatch, useSelector } from 'react-redux';
-import { getUser } from '../store/selectors';
+import { getUser } from '../../store/selectors';
 import Button from 'antd/lib/button';
 
 import './home.scss';
-import actions from '../store/actions';
+import actions from '../../store/actions';
 
 const Home = () => {
   const dispatch = useDispatch();

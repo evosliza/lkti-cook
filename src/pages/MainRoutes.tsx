@@ -2,9 +2,9 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-import Register from './Register';
-import Login from './Login';
-import Home from './Home';
+import Register from './auth/Register';
+import Login from './auth/Login';
+import Home from './home/Home';
 
 import { getIsLoggedIn } from '../store/selectors';
 

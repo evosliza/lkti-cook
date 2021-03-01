@@ -1,7 +1,9 @@
 export interface RecipeModel {
+  uid: string;
   name: string;
   ingredients?: Ingredient[];
   description?: string;
+  type: string;
 }
 
 export interface Ingredient {

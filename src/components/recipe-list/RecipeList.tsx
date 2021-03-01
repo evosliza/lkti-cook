@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from 'react';
 
-import { Card, Empty, List, Tag } from 'antd';
+import { Card, Empty, Image, List, Tag } from 'antd';
 
 import Button from 'antd/lib/button';
 
 import './recipe-list.scss';
-import { RecipeModal } from './RecipeModal';
+import { RecipeModal } from '../recipe-modal/RecipeModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { getRecipeList } from '../store/selectors';
-import actions from '../store/actions';
+import { getRecipeList } from '../../store/selectors';
+import actions from '../../store/actions';
+import { recipeTypes } from '../../constants/recipe-types';
+
+const getRecipeTypeImage = (type: string): string => {
+  return recipeTypes.find((recipeType) => recipeType.type === type)!.image;
+};
 
 export const RecipeList = () => {
   const recipeList = useSelector(getRecipeList);
@@ -37,11 +42,24 @@ export const RecipeList = () => {
               renderItem={item => (
                 <List.Item>
                   <Card
-                    title={item.name}
+                    title={
+                      <div className="recipe-header">
+                        <span>{item.name}</span>
+                        {
+                          item.type && (
+                            <Image
+                              preview={false}
+                              width={20}
+                              src={getRecipeTypeImage(item.type)}
+                            />
+                          )
+                        }
+                      </div>
+                    }
                     headStyle={{ background: '#d4d5d5' }}
                     bodyStyle={{
                       height: 100,
-                      overflow: 'hidden',
+                      overflow: 'hidden'
                     }}
                     actions={[
                       <>

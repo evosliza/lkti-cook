@@ -2,20 +2,24 @@ import React, { FC } from 'react';
 import Button from 'antd/lib/button';
 import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
+import Image from 'antd/lib/image';
 import { InputNumber, Modal, Select, Space } from 'antd';
 import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 import TextArea from 'antd/lib/input/TextArea';
 import { useDispatch } from 'react-redux';
-import { RecipeModel } from '../models/recipe';
-import actions from '../store/actions';
+import { RecipeModel } from '../../models/recipe';
+import actions from '../../store/actions';
+import { recipeTypes } from '../../constants/recipe-types';
 
+import './recipe-modal.scss';
 const { Option } = Select;
+
 interface RecipeModalProps {
   isModalVisible: boolean;
   setIsModalVisible: (isModalVisible: boolean) => void;
 }
 
-export const RecipeModal: FC<RecipeModalProps> = ({isModalVisible, setIsModalVisible}) => {
+export const RecipeModal: FC<RecipeModalProps> = ({ isModalVisible, setIsModalVisible }) => {
   const dispatch = useDispatch();
   const [formInstance] = Form.useForm();
 
@@ -53,6 +57,28 @@ export const RecipeModal: FC<RecipeModalProps> = ({isModalVisible, setIsModalVis
         >
           <Input />
         </Form.Item>
+        <Form.Item
+          className="ingredient-type"
+          label="Type"
+          name="type"
+        >
+          <Select>
+            {
+              recipeTypes.map((recipeType) => (
+                <Option value={recipeType.type} className="recipe-type-option">
+                  <div className="recipe-type-option-container">
+                    <span>{recipeType.type}</span>
+                    <Image
+                      preview={false}
+                      width={20}
+                      src={recipeType.image}
+                    /></div>
+                </Option>
+              ))
+            }
+          </Select>
+        </Form.Item>
+
 
         <Form.List
           name="ingredients"

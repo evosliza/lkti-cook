@@ -3,7 +3,7 @@ import Form from 'antd/lib/form';
 import Input from 'antd/lib/input';
 import Button from 'antd/lib/button';
 import { useDispatch } from 'react-redux';
-import actions from '../store/actions';
+import actions from '../../store/actions';
 import { Card } from 'antd';
 import { Link } from 'react-router-dom';
 
